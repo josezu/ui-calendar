@@ -3,7 +3,11 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
-    "lib": ["dom", "es2017", "es6"],
+    "lib": [
+      "dom",
+      "es2017",
+      "es6"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -18,10 +22,15 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "baseUrl": "./"
+    "isolatedModules": true
   },
   "extends": "./tsconfig.extend.json",
-  "exclude": ["node_modules"],
-  "include": ["src", "**/*.ts", "**/*.tsx"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "src",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

@@ -11,7 +11,9 @@
       "@components": ["./components"],
       "@components/*": ["./components/*"],
       "@pages": ["./pages"],
-      "@pages/*": ["./pages/*"]
+      "@pages/*": ["./pages/*"],
+      "@types": ["./types"],
+      "@types/*": ["./types/*"]
     }
   }
 }
