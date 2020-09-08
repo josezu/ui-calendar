@@ -21,6 +21,7 @@
     "isolatedModules": true,
     "baseUrl": "./"
   },
+  "extends": "./tsconfig.extend.json",
   "exclude": ["node_modules"],
-  "include": ["types.d.ts", "src", "**/*.ts", "**/*.tsx"]
+  "include": ["src", "**/*.ts", "**/*.tsx"]
 }

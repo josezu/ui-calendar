@@ -1,12 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Header } from './style'
+import logoImage from '@assets/images/general/logo.svg'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <Header>
+        <img src={logoImage} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -18,9 +18,9 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </Header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
