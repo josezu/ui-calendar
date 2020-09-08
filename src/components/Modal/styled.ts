@@ -27,11 +27,11 @@ export const Wrapper = styled.div<WrapperProps>`
   position: absolute;
   left: 0;
   right: 0;
-  padding: 15px 0;
+  padding: 15px;
   margin: auto;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   overflow: auto;
 
   @media ${media.sm} {

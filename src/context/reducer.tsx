@@ -1,5 +1,5 @@
 import { Reminder } from '../types/reminder'
-
+import moment from 'moment'
 import {
   addNewReminder,
   removeReminder,
@@ -25,7 +25,7 @@ export type Action =
     }
   | {
       type: 'removeAllRemindersDay'
-      day: Date
+      day: moment.Moment
     }
   | {
       type: 'editReminder'
@@ -41,20 +41,22 @@ export const ReducerContext = (state: State, action: Action): State => {
       return { ...state, reminders: action.items }
     }
     case 'addNewReminder': {
-      const reminders = addNewReminder(action.item, state.reminders)
+      const reminders = addNewReminder(action.item)
       return { ...state, reminders: reminders }
     }
     case 'editReminder': {
-      const reminders = editReminder(action.item, state.reminders)
+      const reminders = editReminder(action.item)
       return { ...state, reminders: reminders }
     }
     case 'removeReminder': {
-      const reminders = removeReminder(action.item, state.reminders)
+      const reminders = removeReminder(action.item)
       return { ...state, reminders: reminders }
     }
     case 'removeAllRemindersDay': {
-      const reminders = removeAllRemindersDay(action.day, state.reminders)
+      const reminders = removeAllRemindersDay(action.day)
       return { ...state, reminders: reminders }
     }
+    default:
+      return state
   }
 }

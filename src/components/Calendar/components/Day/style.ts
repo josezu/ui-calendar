@@ -30,7 +30,9 @@ export const ReminderItem = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
 `
 
-export const Description = styled.span``
+export const Description = styled.span`
+  flex: 1;
+`

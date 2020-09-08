@@ -75,8 +75,8 @@ const Calendar = () => {
       </WeekWrapper>
       {
         <MonthWrapper>
-          {days.map((day: DayType, index: number) => (
-            <DayItem key={`day-item-${index}-${currentMonth}`}>
+          {days.map((day: DayType) => (
+            <DayItem key={`day-item-${day.date}`}>
               <Day day={day} setCurrentMonth={setCurrentMonth}></Day>
             </DayItem>
           ))}

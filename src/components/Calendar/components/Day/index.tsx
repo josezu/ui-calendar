@@ -14,14 +14,14 @@ import { Reminder } from '@root/types/reminder'
 import { getRemindersForDay } from '@root/helpers/reminder'
 import { BsFillCircleFill } from 'react-icons/bs'
 import MainContext from '@root/context'
-import Modal from '@root/components/Modal'
+import ModalDay from '../ModalDay'
 type DayProps = {
   day: DayType
   setCurrentMonth: (date: moment.Moment) => void
 }
 
 const Day = ({ day, setCurrentMonth }: DayProps) => {
-  const {
+  let {
     state: { reminders },
   } = useContext(MainContext)
 
@@ -31,14 +31,14 @@ const Day = ({ day, setCurrentMonth }: DayProps) => {
 
   useEffect(() => {
     if (day.currentMonth) {
-      setCurrentReminders(getRemindersForDay(day.date, reminders))
+      setCurrentReminders(getRemindersForDay(day.date))
+    } else {
+      setCurrentReminders([] as Reminder[])
     }
   }, [reminders])
 
   return openModal ? (
-    <Modal huge={true} closeModal={setOpenModal}>
-      asdasd
-    </Modal>
+    <ModalDay day={day} closeModal={setOpenModal} />
   ) : (
     <DayItem
       isCurrentMonth={day.currentMonth}
@@ -50,12 +50,12 @@ const Day = ({ day, setCurrentMonth }: DayProps) => {
     >
       <DayNumber>{day.date.format('DD')}</DayNumber>
       <ReminderList>
-        {currentReminders?.map((reminder: Reminder, index: number) => (
-          <ReminderItem key={`reminder-item-${reminder.id}-${index}`}>
+        {currentReminders?.map((reminder: Reminder) => (
+          <ReminderItem key={`reminder-item-${reminder.id}`}>
             <Description>{reminder.description}</Description>
             {reminder.color != '' && (
               <BsFillCircleFill
-                size="8px"
+                size="10px"
                 color={reminder.color}
               ></BsFillCircleFill>
             )}
